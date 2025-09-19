@@ -11,6 +11,7 @@
   --light-gray: #ebebeb;
   --green: #39b54a;
   --base-font-family: 'Roboto', sans-serif
+  
 }
 
 
@@ -68,7 +69,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: var(--light-gray);
 }
 
 .main-header_home-link,

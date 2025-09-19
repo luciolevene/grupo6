@@ -1,41 +1,3 @@
-const productos = [
-            { 
-                id: 1, 
-                nombre: "Cafetera Moulinex", 
-                descripcion: "Cafetera eléctrica automática", 
-                comentarios: 12,
-                imagen: "/images/products/img-cafetera-moulinex.jpg"
-            },
-            { 
-                id: 2, 
-                nombre: "Televisor Samsung", 
-                descripcion: "Smart TV 50 pulgadas", 
-                comentarios: 8,
-                imagen: "/images/products/img-tv-samsung-smart.jpg"
-            },
-            { 
-                id: 3, 
-                nombre: "Notebook HP", 
-                descripcion: "Core i5, 8GB RAM", 
-                comentarios: 20,
-                imagen: "/images/products/img-macbook-pro-2019.jpg"
-            },
-            { 
-                id: 4, 
-                nombre: "Celular Samsung Galaxy S10", 
-                descripcion: "Celular alta gama", 
-                comentarios: 15,
-                imagen: "/images/products/img-samsung-galaxy-s10.jpg"
-            }
-        ];
-
-
-
-
-
-
-
-
 
 const data = {
     usuario: {
@@ -48,7 +10,7 @@ const data = {
     productos: [
       {
         id: 1,
-        imagen: "iphone14.jpg",
+        imagen: "iphone-14.jpg",
         nombre: "iPhone 14",
         descripcion: "Pantalla Super Retina XDR de 6,1 pulgadas y cámara dual avanzada.",
         comentarios: [
@@ -58,7 +20,7 @@ const data = {
       },
       {
         id: 2,
-        imagen: "iphone14pro.jpg",
+        imagen: "iphone 14 pro.jpeg",
         nombre: "iPhone 14 Pro",
         descripcion: "Dynamic Island y sistema de cámaras Pro de 48 MP.",
         comentarios: [
@@ -98,7 +60,7 @@ const data = {
       },
       {
         id: 6,
-        imagen: "pixel7pro.jpg",
+        imagen: "pixelpro7.jpeg",
         nombre: "Google Pixel 7 Pro",
         descripcion: "Cámara triple con telefoto y pantalla QHD+ LTPO de 120 Hz.",
         comentarios: [
@@ -108,7 +70,7 @@ const data = {
       },
       {
         id: 7,
-        imagen: "xiaomi13.jpg",
+        imagen: "xiami13.jpeg",
         nombre: "Xiaomi 13",
         descripcion: "Colaboración con Leica para fotografía profesional.",
         comentarios: [
@@ -118,7 +80,7 @@ const data = {
       },
       {
         id: 8,
-        imagen: "xiaomi13pro.jpg",
+        imagen: "xiami13pro.jpeg",
         nombre: "Xiaomi 13 Pro",
         descripcion: "Cámara de 1 pulgada con sensor Sony IMX989.",
         comentarios: [
@@ -128,7 +90,7 @@ const data = {
       },
       {
         id: 9,
-        imagen: "oneplus11.jpg",
+        imagen: "oneplus11.jpeg",
         nombre: "OnePlus 11",
         descripcion: "Snapdragon 8 Gen 2, pantalla AMOLED 120 Hz y carga rápida.",
         comentarios: [
@@ -138,7 +100,7 @@ const data = {
       },
       {
         id: 10,
-        imagen: "motorolaedge30.jpg",
+        imagen: "motorola.jpeg",
         nombre: "Motorola Edge 30 Ultra",
         descripcion: "Cámara de 200 MP y carga rápida de 125 W.",
         comentarios: [
@@ -146,8 +108,8 @@ const data = {
           { usuario: "Gise", texto: "El diseño es muy elegante.", imagenPerfil: "gise.jpg" }
         ]
       }
-    ]
+    ] 
   };
   
-  module.exports = productos;
+  module.exports = data;
   

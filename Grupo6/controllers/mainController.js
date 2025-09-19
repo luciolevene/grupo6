@@ -1,10 +1,10 @@
-const productos = require("../db");
+const data = require("../db");
 
 
 const mainController = {
     index: function(req, res) {
         
-        res.render("index", { productos }); 
+        res.render("index", { productos: data.productos }); 
     },
 
     login: function(req, res) {
