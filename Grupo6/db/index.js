@@ -30,7 +30,7 @@ const data = {
       },
       {
         id: 3,
-        imagen: "s23.jpg",
+        imagen: "samsung-galaxys23.jpg",
         nombre: "Samsung Galaxy S23",
         descripcion: "Pantalla Dynamic AMOLED 2X y procesador Snapdragon 8 Gen 2.",
         comentarios: [

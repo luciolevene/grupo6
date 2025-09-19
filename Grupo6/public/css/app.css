@@ -192,7 +192,7 @@ hr {
 }
 
 .product-box_image img {
-  max-height: 100px; 
+  max-height: 300px; 
   width: auto;       
   display: block;
   margin: 0 auto;     
