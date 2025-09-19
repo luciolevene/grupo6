@@ -191,6 +191,14 @@ hr {
   border-bottom: 1px solid var(--light-gray);
 }
 
+.product-box_image img {
+  max-height: 100px; 
+  width: auto;       
+  display: block;
+  margin: 0 auto;     
+}
+
+
 .product-box_data {
   padding: 15px;
   position: relative;
@@ -310,6 +318,9 @@ hr {
   display: block;
   margin: auto;
 }
+
+
+
 
 .product-detail-info {
   border-right: 1px solid var(--light-gray);
