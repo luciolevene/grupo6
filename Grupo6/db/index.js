@@ -1,3 +1,4 @@
+
 const data = {
     usuario: {
       id: 1,
@@ -9,7 +10,7 @@ const data = {
     productos: [
       {
         id: 1,
-        imagen: "iphone14.jpg",
+        imagen: "iphone-14.jpg",
         nombre: "iPhone 14",
         descripcion: "Pantalla Super Retina XDR de 6,1 pulgadas y cámara dual avanzada.",
         comentarios: [
@@ -19,7 +20,7 @@ const data = {
       },
       {
         id: 2,
-        imagen: "iphone14pro.jpg",
+        imagen: "iphone 14 pro.jpeg",
         nombre: "iPhone 14 Pro",
         descripcion: "Dynamic Island y sistema de cámaras Pro de 48 MP.",
         comentarios: [
@@ -29,7 +30,7 @@ const data = {
       },
       {
         id: 3,
-        imagen: "s23.jpg",
+        imagen: "samsung-galaxys23.jpg",
         nombre: "Samsung Galaxy S23",
         descripcion: "Pantalla Dynamic AMOLED 2X y procesador Snapdragon 8 Gen 2.",
         comentarios: [
@@ -59,7 +60,7 @@ const data = {
       },
       {
         id: 6,
-        imagen: "pixel7pro.jpg",
+        imagen: "pixelpro7.jpeg",
         nombre: "Google Pixel 7 Pro",
         descripcion: "Cámara triple con telefoto y pantalla QHD+ LTPO de 120 Hz.",
         comentarios: [
@@ -69,7 +70,7 @@ const data = {
       },
       {
         id: 7,
-        imagen: "xiaomi13.jpg",
+        imagen: "xiami13.jpeg",
         nombre: "Xiaomi 13",
         descripcion: "Colaboración con Leica para fotografía profesional.",
         comentarios: [
@@ -79,7 +80,7 @@ const data = {
       },
       {
         id: 8,
-        imagen: "xiaomi13pro.jpg",
+        imagen: "xiami13pro.jpeg",
         nombre: "Xiaomi 13 Pro",
         descripcion: "Cámara de 1 pulgada con sensor Sony IMX989.",
         comentarios: [
@@ -89,7 +90,7 @@ const data = {
       },
       {
         id: 9,
-        imagen: "oneplus11.jpg",
+        imagen: "oneplus11.jpeg",
         nombre: "OnePlus 11",
         descripcion: "Snapdragon 8 Gen 2, pantalla AMOLED 120 Hz y carga rápida.",
         comentarios: [
@@ -99,7 +100,7 @@ const data = {
       },
       {
         id: 10,
-        imagen: "motorolaedge30.jpg",
+        imagen: "motorola.jpeg",
         nombre: "Motorola Edge 30 Ultra",
         descripcion: "Cámara de 200 MP y carga rápida de 125 W.",
         comentarios: [
@@ -107,7 +108,7 @@ const data = {
           { usuario: "Gise", texto: "El diseño es muy elegante.", imagenPerfil: "gise.jpg" }
         ]
       }
-    ]
+    ] 
   };
   
   module.exports = data;
