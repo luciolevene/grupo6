@@ -1,3 +1,5 @@
+const data = require("../db");
+
 const productController = {
     lista: function (req, res) {
         res.render('products/lista');
@@ -20,7 +22,26 @@ const productController = {
 
     add: function (req, res) {
         res.render('product-add');
+    },
+
+    search: function (req, res) {
+       
+        res.render('search-results', {
+          search: '',                
+          products: data.productos  
+        });
+      },
+      
+
+
+    create: function (req, res) {
+       
     }
+
+  
+
+
+   
 };
 
 module.exports = productController;

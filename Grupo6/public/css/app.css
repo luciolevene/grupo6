@@ -11,7 +11,6 @@
   --light-gray: #ebebeb;
   --green: #39b54a;
   --base-font-family: 'Roboto', sans-serif
-  
 }
 
 
@@ -69,7 +68,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--light-gray);
+  background-color: var(--yellow);
 }
 
 .main-header_home-link,
@@ -187,14 +186,23 @@ hr {
   display: block;
 }
 
-.product-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+.product-box_image {
+  border-bottom: 1px solid var(--light-gray);
 }
 
-.product-box img {
-  max-width: 100%;
-  height: auto;
+.product-box_image img {
+  max-height: 300px;  
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-box_data {
+  padding: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .product-box_data h2 {
@@ -308,9 +316,6 @@ hr {
   display: block;
   margin: auto;
 }
-
-
-
 
 .product-detail-info {
   border-right: 1px solid var(--light-gray);
@@ -432,4 +437,101 @@ hr {
   margin: 10px 0;
 }
 
-.footer-dat
+.form-input {
+  display: block;
+  width: 100%;
+  height: 45px;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  border-radius: 8px;
+  border: none;
+  border: solid 1px var(--gray);
+  padding: 0 15px;
+}
+
+.error{
+  color: rgb(209, 0, 0);
+  font-size: 1.4em;
+}
+
+textarea.form-input {
+  min-height: 140px;
+  resize: vertical;
+  padding: 15px;
+}
+
+/*====== Profile ======*/
+.info-usuario{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 30px;
+  font-size: 16px;
+}
+
+.foto-perfil{
+  border-radius: 50%;
+}
+
+.main-title{
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.btn{
+  background-color: #1259c3;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+
+/*====== Media-Queries ======*/
+@media (min-width: 768px) {
+  .main-header_credit-link {
+    margin-top: 0;
+    text-align: right;
+  }
+
+  .banner {
+    height: 320px;
+  }
+
+  .btn-toggle-navbar {
+    display: none;
+  }
+
+  .main-navbar,
+  .left-navbar,
+  .right-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .left-navbar a,
+  .right-navbar a {
+    border-bottom: none;
+  }
+
+  .left-navbar a:hover,
+  .right-navbar a:hover {
+    color: var(--light-blue);
+  }
+
+  .left-navbar li {
+    margin-right: 15px;
+  }
+
+  .right-navbar li {
+    margin-left: 15px;
+  }
+
+  .main-footer {
+    padding: 40px 0;
+  }
+
+  .footer-data {
+    width: 95%;
+    margin: auto;
+  }
+}

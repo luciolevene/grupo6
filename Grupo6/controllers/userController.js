@@ -1,3 +1,6 @@
+
+const data = require("../db");
+
 const userController = {
     register: function (req, res) {
       res.render('register');
@@ -6,7 +9,14 @@ const userController = {
       res.render('login');
     },
     profile: function (req, res) {
-      res.render('profile');
+     
+      res.render('profile', {
+        productos: data.productos,
+        user: data.usuario        
+      });
+    },
+    logout: function (req, res) {
+      res.redirect('/');
     }
   };
   
