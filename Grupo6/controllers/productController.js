@@ -24,15 +24,28 @@ const productController = {
         res.render('product-add');
     },
 
-    search: function (req, res) {
-       
-        res.render('search-results', {
-          search: '',                
-          products: data.productos  
-        });
-      },
-      
+   search: function (req, res) {
+    const query = req.query.search; 
+    
+    // detalles estatico s para entrega 1
+    const resultados = [
+        {
+            nombre: "iPhone 14",
+            descripcion: "Pantalla Super Retina XDR de 6,1 pulgadas y cámara dual avanzada.",
+            imagen: "/images/products/iphone-14.jpg"
+        },
+        {
+            nombre: "Samsung Galaxy S23",
+            descripcion: "Pantalla Dynamic AMOLED 2X y procesador Snapdragon 8 Gen 2.",
+            imagen: "/images/products/samsung-galaxys23.jpg"
+        }
+    ];
 
+    res.render('search-results', {
+        search: query,
+        products: resultados
+    });
+},
 
     create: function (req, res) {
        
