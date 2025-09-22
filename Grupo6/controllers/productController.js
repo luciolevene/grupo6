@@ -15,7 +15,7 @@ const productController = {
     },
 
 search: function (req, res) {
-    const products = data.productos[1];
+    const products = data.productos.slice(0,3);
     const search = ""; 
     res.render('search-results', { products, search });
 },
