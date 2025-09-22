@@ -7,7 +7,7 @@ const productController = {
 
   detalle: function (req, res) {
     const producto = data.productos[0]; 
-    res.render('product', { producto });
+    res.render('product', { producto,logeado: true  });
 },
 
     add: function (req, res) {
@@ -17,7 +17,7 @@ const productController = {
 search: function (req, res) {
     const products = data.productos.slice(0,3);
     const search = ""; 
-    res.render('search-results', { products, search });
+    res.render('search-results', { products, search, logeado: true  });
 },
 
     

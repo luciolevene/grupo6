@@ -13,9 +13,11 @@ const userController = {
     login: function (req, res) {
       res.render('login');
     },
+    
 
     processLogin: function (req, res) {
-    res.render('index', { productos: data.productos });
+    res.render('index', { productos: data.productos, logeado: true });
+
 },
     profile: function (req, res) {
      
@@ -24,10 +26,9 @@ const userController = {
         user: data.usuario        
       });
     },
-    logout: function (req, res) {
-      res.render('index', { productos: data.productos });
-
-    },
+   logout: function (req, res) {
+    res.render('index', { productos: data.productos, logeado: false });
+},
 
 
 };

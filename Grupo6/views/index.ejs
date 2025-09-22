@@ -14,8 +14,12 @@
 
 </head>
 <body>
-
-	<%- include("./partials/header") %>
+  <% if (logeado) { %>
+    <%- include("./partials/headerLogeado") %>
+<% } else { %>
+    <%- include("./partials/header") %>
+<% } %>
+	
 	
 	<div class="banner">
 		<img src="/images/img-home-banner.jpg" alt="Banner de ofertas">
@@ -55,8 +59,8 @@
 		</div>
 		</div>
 
-	<!-- footer -->
+	
 	<%- include("./partials/footer") %>
-	<!-- /footer -->
+
 </body>	
 </html>
