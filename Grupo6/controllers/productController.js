@@ -8,13 +8,13 @@ const productController = {
     detalle: function (req, res) {
         const producto = {
             id: 1,
-            nombre: "Cafetera Moulinex",
-            descripcion: "Cafetera eléctrica automática",
+            nombre: "iPhone 14",
+            descripcion: "Pantalla Super Retina XDR de 6,1 pulgadas y cámara dual avanzada.",
             comentarios: [
-                { usuario: "Juan", texto: "Muy buena cafetera", imagen: "/images/users/profile-default.png" },
-                { usuario: "Ana", texto: "Me encanto muy buena la uso todos los días", imagen: "/images/users/profile-default.png" }
+                { usuario: "Ana", texto: "Lo compre y la camara es increible", imagen: "/images/users/profile-default.png" },
+                { usuario: "Leo", texto: "Muy caro pero vale la pena", imagen: "/images/users/profile-default.png" }
             ],
-            imagen: "/images/products/img-cafetera-moulinex.jpg"
+            imagen: "/images/products/iphone-14.jpg"
         };
 
         res.render('product', { producto }); 
