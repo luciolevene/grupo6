@@ -68,7 +68,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color:rgb(95, 135, 160);
 }
 .main-header_home-link,
 .main-header_credit-link {
@@ -79,6 +79,14 @@ hr {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
+}
+
+.logo{
+
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .search-form {
