@@ -12,21 +12,20 @@
     <main class="container-products-wrapper">
         <div class="row">
             <div class="col-12 col-lg-8">
-                <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>" class="product-detail-img">
-                <h2><%= producto.nombre %></h2>
+              <h2><%= producto.nombre %></h2>
+              <img src="/images/products/<%= producto.imagen %>" alt="<%= producto.nombre %>" class="product-detail-img">
                 <p><%= producto.descripcion %></p>
             </div>
 
             <div class="col-12 col-lg-4">
                 <h3>Comentarios</h3>
 
-<% let comentarios = []; %>
-<% if (producto.comentarios) { comentarios = producto.comentarios; } %>
+<% let comentarios = producto.comentarios ; %>
 
 <% if (comentarios.length > 0) { %>
   <% for (let i = 0; i < comentarios.length; i++) { %>
     <div class="comments">
-      <img src="<%= comentarios[i].imagen %>" alt="perfil" class="comment-img">
+      <img src="/images/users/<%= comentarios[i].imagenPerfil %>" alt="perfil" class="comment-img"> 
       <strong><%= comentarios[i].usuario %>:</strong>
       <span><%= comentarios[i].texto %></span>
     </div>
