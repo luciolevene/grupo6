@@ -422,8 +422,12 @@ hr {
   width: 85%;
   
 }
+.comments h1, h2, h3, h4, h5, h6 {
+  font-size: 4.0em;
+}
+  margin: 0;
 .comments p{
-  font-size: 1.5em;
+  font-size: 4.0em;
   margin-top: 0;
 }
 .comments .user{
@@ -539,4 +543,10 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
+}
+
+.container-products-wrapper {
+  max-width: 700px;   
+  height: auto;       
+  display: block;
 }
