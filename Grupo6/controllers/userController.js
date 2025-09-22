@@ -5,6 +5,12 @@ const userController = {
     register: function (req, res) {
       res.render('register');
     },
+
+    processRegister: function (req, res) {
+    // Aquí podrías guardar el usuario, pero para redirigir:
+    res.render('login');
+    
+  },
     login: function (req, res) {
       res.render('login');
     },
@@ -16,9 +22,11 @@ const userController = {
       });
     },
     logout: function (req, res) {
-      res.redirect('/');
-    }
-  };
+      res.render('/');
+    },
+
+
+};
   
   module.exports = userController;
   
