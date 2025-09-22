@@ -13,10 +13,12 @@ const productController = {
   addProduct: function (req, res) {
     res.render('product-add', { productos: data.productos, logeado: true });
 },
-
+processAdd: function (req, res) {
+    res.render('index', { productos: data.productos, logeado: true });
+},
 search: function (req, res) {
     const products = data.productos.slice(0,3);
-    const search = ""; 
+    const search = "celular"; 
     res.render('search-results', { products, search, logeado: true  });
 },
 
