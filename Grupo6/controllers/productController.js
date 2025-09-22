@@ -10,9 +10,9 @@ const productController = {
     res.render('product', { producto,logeado: true  });
 },
 
-    add: function (req, res) {
-        res.render('product-add');
-    },
+  addProduct: function (req, res) {
+    res.render('product-add', { productos: data.productos, logeado: true });
+},
 
 search: function (req, res) {
     const products = data.productos.slice(0,3);
