@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
+	<link rel="shortcut icon" href="/images/logo.png" />
 	
-	<title>Mercado Liebre Argentina</title>
+	<title>PHONE MARKET</title>
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
@@ -38,7 +38,6 @@
 							<h2><%= productos[i].nombre %></h2>
 							<p><%= productos[i].descripcion %></p>
 							<div class="comments">
-								<% if (productos[i].comentarios && productos[i].comentarios.length > 0) { %>
 									<% for (let j = 0; j < productos[i].comentarios.length; j++) { %>
 										<div class="comentario">
 											<img class="comentario-foto" src="/images/users/<%= productos[i].comentarios[j].imagenPerfil %>" alt="Foto de <%= productos[i].comentarios[j].usuario %>" width="32" height="32">
@@ -46,9 +45,7 @@
 											<span><%= productos[i].comentarios[j].texto %></span>
 										</div>
 									<% } %>
-								<% } else { %>
-									<p>Sin comentarios.</p>
-								<% } %>
+							
 							</div>
 						</article>
 					</a>
