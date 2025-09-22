@@ -24,6 +24,21 @@ body {
   min-height: 100vh;
   margin: 0;
   font-size: 10px;
+  body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+button, input {
+  font-family: inherit;
+}
+
 }
 
 body {
@@ -69,7 +84,13 @@ hr {
 .main-header {
   padding: 15px 0;
   background-color:rgb(95, 135, 160);
-  border-radius: 7px;
+  border-radius: 10px;
+
+
+}
+.main-header a{
+font-weight: initial;
+
 }
 .main-header_home-link,
 .main-header_credit-link {
@@ -169,7 +190,9 @@ hr {
   background-size: cover;
   background-position: center center;
   height: 100px;
-  border-radius: 30px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 5px;
 }
 
 
