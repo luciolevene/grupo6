@@ -7,13 +7,16 @@ const userController = {
     },
 
     processRegister: function (req, res) {
-    // Aquí podrías guardar el usuario, pero para redirigir:
     res.render('login');
     
   },
     login: function (req, res) {
       res.render('login');
     },
+
+    processLogin: function (req, res) {
+    res.render('index', { productos: data.productos });
+},
     profile: function (req, res) {
      
       res.render('profile', {
