@@ -25,7 +25,8 @@ const userController = {
       });
     },
     logout: function (req, res) {
-      res.render('/');
+      res.render('index', { productos: data.productos });
+
     },
 
 
