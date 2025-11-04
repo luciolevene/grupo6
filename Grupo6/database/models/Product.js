@@ -35,5 +35,21 @@ module.exports = function (sequelize, dataTypes) {
   };
 
   let Product = sequelize.define(alias, cols, config);
+
+ 
+  Product.associate = function(models) {
+
+    Product.belongsTo(models.User, {
+      as: "usuario",
+      foreignKey: "idUsuario"
+    });
+
+  
+    Product.hasMany(models.Comment, {
+      as: "comentarios",
+      foreignKey: "idProducto"
+    });
+  };
+
   return Product;
 };
