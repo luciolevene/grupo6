@@ -1,12 +1,25 @@
-const data = require("../db");
 
-//test
+const db = require('../database/models');
+
+const op = db.Sequelize.Op;
+
+
 
 const mainController = {
     index: function(req, res) {
-        
-        res.render("index", { productos: data.productos, logeado: true}); 
+        db.Product.findAll({
+            include: [
+                { association: 'user' },
+                { association: 'comments' }
+            ]
+        })
+        .then(function (productos) {
+            res.render("index", { productos: productos, logeado: true });
+          })
+       
     },
+
+    
 
 };
 

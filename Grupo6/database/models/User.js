@@ -38,12 +38,12 @@ module.exports = function (sequelize, dataTypes) {
 
   User.associate = function (models) {
     User.hasMany(models.Product, {
-      as: "productos",
+      as: "product",
       foreignKey: "idUsuario"
     }); 
 
     User.hasMany(models.Comment, {
-      as: "comentarios",
+      as: "comments",
       foreignKey: "idUsuario"
     }); 
   };
