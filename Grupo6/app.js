@@ -4,10 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const productsRouter = require('./routes/products');
-
+var productsRouter = require('./routes/products');
 
 var app = express();
 
@@ -19,38 +19,37 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/products',productsRouter)
-
-app.use(function(req, res, next) {
-	if (req.session.userLogueado != undefined) {
-	  res.locals.user = req.session.userLogueado	
-  }
-  return next();
-});
-
 
 app.use(session({
-  secret: 'progra2-grupo6',   
+  secret: 'progra2-grupo6',
   resave: false,
   saveUninitialized: true
 }));
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
+  if (!req.session.userLogueado && req.cookies.usuario) {
+    req.session.userLogueado = req.cookies.usuario; 
+  }
+  res.locals.user = req.session.userLogueado || null; 
+  next();
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+// routers
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/products', productsRouter);
+
+// 404
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+app.use(function (err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
