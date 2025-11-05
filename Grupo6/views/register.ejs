@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,51 +14,35 @@
 	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/css/app.css">
 </head>
-			
+
 <body>
 	<!-- Header -->
 	<%- include("./partials/header") %>
-	<!-- /Header -->
+		<!-- /Header -->
 
-	<!-- Registro -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Registrate</h2>
-			</div>
-
-			<div class="col-12 col-md-6 offset-md-3">
-				<form action="/users/processRegister" method="GET" enctype="multipart/form-data" class="register-form">
-					<div class="form-group">
-						<label for="nombre">Usuario:</label>
-						<input type="text" name="usuario" id="usuario" class="form-control" required>
-					</div>
-
-					<div class="form-group">
-						<label for="email">Email:</label>
-						<input type="email" name="email" id="email" class="form-control" required>
-					</div>
-
-					<div class="form-group">
-						<label for="password">Contraseña:</label>
-						<input type="password" name="password" id="password" class="form-control" required>
-					</div>
-
-					<div class="form-group">
-						<label for="avatar">Foto de perfil:</label>
-						<input type="file" name="avatar" id="avatar" class="form-control" accept="image/*">
-					</div>
-
-					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Registrarme</button>
-					</div>
-				</form>
+		<!-- Registro -->
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Registrate</h2>
+				</div>
+		
+				<div class="col-12 col-md-6 offset-md-3">
+					<form action="/users/processRegister" method="POST" class="register-form">
+						<input type="text" name="usuario" required>
+						<input type="email" name="email" required>
+						<input type="password" name="password" required>
+						<input type="text" name="fotoPerfil">
+						<button type="submit">Registrarme</button>
+					</form>
+		
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- footer -->
-	<%- include("./partials/footer") %>
-	<!-- /footer -->
+		<!-- footer -->
+		<%- include("./partials/footer") %>
+			<!-- /footer -->
 </body>
+
 </html>
