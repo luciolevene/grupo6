@@ -10,7 +10,7 @@ const mainController = {
         db.Product.findAll({
             include: [
                 { association: 'user' },
-                { association: 'comments' }
+                { association: 'comentarios'}
             ]
         })
         .then(function (productos) {
