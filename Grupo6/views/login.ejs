@@ -16,7 +16,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include("./partials/header") %>
+<% if (locals.user) { %>
+  <%- include("./partials/headerLogeado") %>
+<% } else { %>
+  <%- include("./partials/header") %>
+<% } %>
 	<!-- /Header -->
 
 	<!-- Contenido -->
@@ -25,7 +29,11 @@
 			<div class="col-12">
 				<h2 class="products-title">Ingresar</h2>
 			</div>
-
+			<% if (typeof error !=='undefined' ) { %>
+				<p class="error">
+					<%= error %>
+				</p>
+				<% } %>
 			<div class="col-12 col-md-6 offset-md-3">
 			<form action="/users/processLogin" method="POST" class="login-form">
 				<input type="email" name="email" required>
