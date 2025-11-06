@@ -1,9 +1,7 @@
-// controllers/userController.js
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 
 const usersController = {
-  // GET /users/login
   login: function (req, res) {
     if (req.session && req.session.userLogueado) {
       return res.redirect('/users/profile');
@@ -11,22 +9,17 @@ const usersController = {
     return res.render('login');
   },
 
-  // POST /users/processLogin
-  processLogin: function (req, res) {
-    db.User.findOne({ where: { email: req.body.email } })
-      .then(function (user) {
-        if (!user) {
-          return res.render('login', { error: 'Email no registrado' });
-        }
+ 
+processLogin: function (req, res) {
+  db.User.findOne({
+    where: { email: req.body.email }
+  })
+  .then(function (user) {
+    if (user != undefined) {
+      let passDb = user.password;
+      let check = bcrypt.compareSync(req.body.password, passDb);
 
-        const passDb = user.password;
-        const ok = bcrypt.compareSync(req.body.password, passDb) || passDb === req.body.password;
-
-        if (!ok) {
-          return res.render('login', { error: 'Contraseña incorrecta' });
-        }
-
-        // guardar en sesión lo mínimo
+      if (check == true || passDb == req.body.password) {
         req.session.userLogueado = {
           id: user.id,
           usuario: user.usuario,
@@ -34,20 +27,24 @@ const usersController = {
           fotoPerfil: user.fotoPerfil
         };
 
-        // recordarme (cookie)
-        if (req.body.remember || req.body.recordarme) {
+        if (req.body.remember != undefined) {
           res.cookie('usuario', req.session.userLogueado, { maxAge: 1000 * 60 * 5 });
         }
 
         return res.redirect('/users/profile');
-      })
-      .catch(err => {
-        console.error(err);
-        return res.status(500).render('error', { message: 'Error al iniciar sesión', error: err });
-      });
-  },
+      } else {
+        return res.render('login', { error: 'Contraseña incorrecta' });
+      }
+    } else {
+      return res.render('login', { error: 'Email no registrado' });
+    }
+  })
+  .catch(function (error) {
+    console.error(error);
+    return res.status(500).render('error', { message: 'Error al iniciar sesión', error: error });
+  });
+},
 
-  // GET /users/profile
   profile: function (req, res) {
     if (!req.session || !req.session.userLogueado) {
       return res.redirect('/users/login');
@@ -68,7 +65,6 @@ const usersController = {
         if (!usuario) {
           return res.redirect('/users/login');
         }
-        // tu profile.ejs usa "user" y "productos"
         return res.render('profile', { user: usuario, productos: usuario.productos });
       })
       .catch(err => {
@@ -77,7 +73,6 @@ const usersController = {
       });
   },
 
-  // GET /users/profile/:id (opcional)
   profilePorId: function (req, res) {
     const userId = req.params.id;
 
@@ -102,7 +97,6 @@ const usersController = {
       });
   },
 
-  // GET /users/register
   register: function (req, res) {
     if (req.session && req.session.userLogueado) {
       return res.redirect('/users/profile');
@@ -110,7 +104,6 @@ const usersController = {
     return res.render('register');
   },
 
-  // POST /users/processRegister
   processRegister: function (req, res) {
     const password = req.body.password;
     if (!password || password.length < 3) {
@@ -131,11 +124,11 @@ const usersController = {
           usuario: req.body.usuario,
           email: req.body.email,
           password: passHash,
-          fotoPerfil: req.body.fotoPerfil || null
+          fotoPerfil: req.body.fotoPerfil 
         });
       })
       .then(function (user) {
-        if (!user) return; // ya respondimos por email duplicado
+        if (!user) return;
 
         req.session.userLogueado = {
           id: user.id,
@@ -152,7 +145,6 @@ const usersController = {
       });
   },
 
-  // GET /users/logout
   logout: function (req, res) {
     if (req.session) {
       req.session.destroy(() => {
