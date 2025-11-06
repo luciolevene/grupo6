@@ -9,31 +9,50 @@ const productController = {
     },
 
 
-detalle: function (req, res) {
-  var id = req.params.id; 
-
-  db.Product.findByPk(id)  
-  .then(function (producto) {
-    if (!producto) {
-      return res.redirect('/');
-    }
-    return res.render('product', {
-      producto: producto,
-      logeado: (req.session && req.session.user) ? true : false
-    });
-  })
-  .catch(function (error) {
-    console.log(error);
-    return res.redirect('/');
-  });
-},
+    detalle: function (req, res) {
+      var id = req.params.id; 
+    
+      db.Product.findByPk(id)
+      .then(function (producto) {
+        if (!producto) {
+          return res.redirect('/');
+        }
+    
+        var logeado = false;
+        if (req.session && req.session.user) {
+          logeado = true;
+        }
+    
+        return res.render('product', {
+          producto: producto,
+          logeado: logeado
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+        res.redirect('/');
+      });
+    },
 
 
   addProduct: function (req, res) {
     res.render('product-add', { productos: data.productos, logeado: true });
 },
 processAdd: function (req, res) {
-    res.render('index', { productos: data.productos, logeado: true });
+  
+  db.Product.create({
+    imagen: req.body.imagen,                 
+    nombre: req.body.nombre,                
+    descripcion: req.body.descripcion,      
+    idUsuario: req.session.userLogueado.id   
+  })
+  .then(function (producto) {
+    return res.redirect('/users/profile');  
+  })
+  .catch(function (error) {
+    console.log(error);
+    return res.send('Error al crear el producto');
+  });
 },
 
 search: function (req, res) {
