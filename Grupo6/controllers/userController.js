@@ -145,17 +145,12 @@ processLogin: function (req, res) {
       });
   },
 
-  logout: function (req, res) {
-    if (req.session) {
-      req.session.destroy(() => {
-        res.clearCookie('usuario');
-        return res.redirect('/');
-      });
-    } else {
-      res.clearCookie('usuario');
-      return res.redirect('/');
+  
+    logout: function(req, res){
+        req.session.destroy();
+        res.clearCookie('usuario')
+        res.redirect("/")
     }
-  }
 };
 
 module.exports = usersController;

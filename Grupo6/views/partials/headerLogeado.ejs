@@ -1,54 +1,52 @@
 <header class="main-header">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-5 col-md-2">
-                 <a href="/" class="main-header_home-link">
-                    <img class ="logo" src="/images/logo.png" alt="Logo ">
-                </a>
-            </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-5 col-md-2">
+        <a href="/" class="main-header_home-link">
+          <img class="logo" src="/images/logo.png" alt="Logo ">
+        </a>
+      </div>
 
-            <div class="col-7 col-md-6">
-                <form action="/products/search" method="GET" class="search-form">
-                    <input type="text" name="search" placeholder="Buscar productos, marcas y más"
-                        class="search-form_input">
-                    <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
+      <div class="col-7 col-md-6">
+        <form action="/products/search" method="GET" class="search-form">
+          <input type="text" name="search" placeholder="Buscar productos, marcas y más"
+                 class="search-form_input">
+          <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
 
-            <div class="col-12 col-md-4">
-                <a class="main-header_credit-link">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    Todas las opiniones en un solo lugar.
-                </a>
-            </div>
-        </div>
-
-        <button class="btn-toggle-navbar">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <nav class="main-navbar">
-            <ul class="left-navbar">
-                <li><a href="/">Todos los productos</a></li>
-                <li><a href="/products/add">Cargar producto</a></li>
-            </ul>
-            <ul class="right-navbar">
-                <li>
-                    <a href="/users/profile">Nombre del usuario <i class="fas fa-user"></i></a>
-                </li>
-                <li>
-                    <form action="/users/logout" method="GET">
-                        <button class="logout" type="submit">
-                            Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-                        </button>
-                    </form>
-                </li>
-                <li>
-             
-                </li>
-                <li>
-                </li>
-            </ul>
-        </nav>
+      <div class="col-12 col-md-4">
+        <a class="main-header_credit-link">
+          <i class="fas fa-hand-holding-usd"></i>
+          Todas las opiniones en un solo lugar.
+        </a>
+      </div>
     </div>
+
+    <button class="btn-toggle-navbar">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="main-navbar">
+      <ul class="left-navbar">
+        <li><a href="/">Todos los productos</a></li>
+        <li><a href="/products/add">Cargar producto</a></li>
+      </ul>
+
+      <ul class="right-navbar">
+        <li>
+          <a href="/users/profile">
+            <%= (locals.user && locals.user.usuario) ? locals.user.usuario : "Mi perfil" %>
+            <i class="fas fa-user"></i>
+          </a>
+        </li>
+
+        <li>
+          <a class="logout" href="/users/logout">
+            Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>

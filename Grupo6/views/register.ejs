@@ -26,31 +26,48 @@
 
 		<!-- Registro -->
 		<div class="container products-wrapper">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="products-title">Registrate</h2>
-				</div>
-				<% if (typeof error !=='undefined' ) { %>
-					<p class="error">
-						<%= error %>
-					</p>
-					<% } %>
-						<div class="col-12 col-md-6 offset-md-3">
-							<form action="/users/processRegister" method="POST" class="register-form">
-								<input type="text" name="usuario" required>
-								<input type="email" name="email" required>
-								<input type="password" name="password" required>
-								<input type="text" name="fotoPerfil">
-								<button type="submit">Registrarme</button>
-							</form>
-
-						</div>
-			</div>
+		<div class="row">
+		<div class="col-12">
+		<h2 class="products-title">Registrate</h2>
 		</div>
-
+		<% if (typeof error !=='undefined' ) { %>
+		<p class="error">
+		<%= error %>
+		</p>
+		<% } %>
+		<div class="col-12 col-md-6 offset-md-3">
+			<form action="/users/processRegister" method="POST" class="register-form">
+				<div class="form-group">
+					<label for="usuario">Nombre de usuario</label>
+					<input id="usuario" type="text" name="usuario" required>
+				</div>
+		
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input id="email" type="email" name="email" required>
+				</div>
+		
+				<div class="form-group">
+					<label for="password">Contraseña</label>
+					<input id="password" type="password" name="password" required>
+				</div>
+		
+				<div class="form-group">
+					<label for="fotoPerfil">Foto de perfil (archivo o nombre)</label>
+					<input id="fotoPerfil" type="text" name="fotoPerfil">
+				</div>
+		
+				<button type="submit">Registrarme</button>
+			</form>
+		
+		
+		</div>
+		</div>
+		</div>
+		
 		<!-- footer -->
 		<%- include("./partials/footer") %>
 			<!-- /footer -->
-</body>
-
-</html>
+			</body>
+		
+			</html>
