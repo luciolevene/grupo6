@@ -8,10 +8,26 @@ const productController = {
         res.render('products/lista');
     },
 
-  detalle: function (req, res) {
-    const producto = data.productos[0]; 
-    res.render('product', { producto,logeado: true  });
+
+detalle: function (req, res) {
+  var id = req.params.id; 
+
+  db.Product.findByPk(id)  
+  .then(function (producto) {
+    if (!producto) {
+      return res.redirect('/');
+    }
+    return res.render('product', {
+      producto: producto,
+      logeado: (req.session && req.session.user) ? true : false
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
+    return res.redirect('/');
+  });
 },
+
 
   addProduct: function (req, res) {
     res.render('product-add', { productos: data.productos, logeado: true });

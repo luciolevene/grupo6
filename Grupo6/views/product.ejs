@@ -6,47 +6,61 @@
 	<link rel="shortcut icon" href="/images/logo.png" />
 	
 	<title>Phone Market Argentina</title>
-	
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="/css/app.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
- <% if (locals.user) { %>
-  <%- include("./partials/headerLogeado") %>
-<% } else { %>
-  <%- include("./partials/header") %>
-<% } %>
-    <main class="container-products-wrapper">
-        <div class="row">
-            <div class="col-12.col-lg-8">
-              <h2><%= producto.nombre %></h2>
-              <img src="/images/products/<%= producto.imagen %>" alt="<%= producto.nombre %>" class="product-detail-img">
-                <p><%= producto.descripcion %></p>
-            </div>
-
-            <div class="col-12.col-lg-4">
-                <h3>Comentarios</h3>
-
-<% let comentarios = producto.comentarios ; %>
-
-<% if (comentarios.length > 0) { %>
-  <% for (let i = 0; i < comentarios.length; i++) { %>
-    <div class="comment">
-      <img src="/images/users/<%= comentarios[i].imagenPerfil %>" alt="perfil" class="comment-img"> 
-      <strong><%= comentarios[i].usuario %>:</strong>
-      <span><%= comentarios[i].texto %></span>
-    </div>
+  <% if (locals.user) { %>
+    <%- include("./partials/headerLogeado") %>
+  <% } else { %>
+    <%- include("./partials/header") %>
   <% } %>
-<% } else { %>
-  <p>No hay comentarios.</p>
-<% } %>
 
-        </div>
-    </main>
+  <main class="container-products-wrapper">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <% if (!producto) { %>
+          <p>No se encontró el producto.</p>
+        <% } else { %>
+          <h2><%= producto.nombre %></h2>
 
-    <%- include("./partials/footer") %>
+          <img
+            src="/images/products/<%= producto.imagen %>"
+            alt="<%= producto.nombre %>"
+            class="product-detail-img"
+            onerror="this.src='/images/products/default.png'">
+
+          <p><%= producto.descripcion %></p>
+        <% } %>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <h3>Comentarios</h3>
+
+        <% 
+          const comentarios = (producto && producto.comentarios) ? producto.comentarios : []; 
+        %>
+
+        <% if (comentarios.length > 0) { %>
+          <% for (var i = 0; i < comentarios.length; i++) { %>
+            <div class="comment">
+              <img src="/images/users/<%= comentarios[i].imagenPerfil %>" alt="perfil" class="comment-img">
+              <strong><%= comentarios[i].usuario %>:</strong>
+              <span><%= comentarios[i].texto %></span>
+            </div>
+          <% } %>
+        <% } else { %>
+          <p>No hay comentarios.</p>
+        <% } %>
+      </div>
+    </div>
+  </main>
+
+  <%- include("./partials/footer") %>
 </body>
 </html>
