@@ -748,3 +748,11 @@ textarea.form-input {
   background: #0e47a1;
 }
 
+.sin-resultados {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #666;
+  margin-top: 40px;
+  font-weight: bold;
+
+}
