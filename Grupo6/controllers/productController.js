@@ -19,6 +19,7 @@ const productController = {
 processAdd: function (req, res) {
     res.render('index', { productos: data.productos, logeado: true });
 },
+
 search: function (req, res) {
   const term = req.query.search;
 
@@ -29,7 +30,6 @@ search: function (req, res) {
     include: [
       { association: "user" }
     ],
-    order: [["createdAt", "DESC"]]
   })
   .then(function (products) {
     res.render("search-results", {
