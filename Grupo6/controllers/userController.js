@@ -28,7 +28,7 @@ processLogin: function (req, res) {
         };
 
         if (req.body.remember != undefined) {
-          res.cookie('usuario', req.session.userLogueado, { maxAge: 1000 * 60 * 5 });
+          res.cookie('usuario', req.session.userLogueado, { maxAge: 1000 * 60 * 60 });
         }
 
         return res.redirect('/users/profile');

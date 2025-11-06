@@ -38,21 +38,26 @@ const productController = {
   addProduct: function (req, res) {
     res.render('product-add', { productos: data.productos, logeado: true });
 },
+
 processAdd: function (req, res) {
-  
-  db.Product.create({
-    imagen: req.body.imagen,                 
-    nombre: req.body.nombre,                
-    descripcion: req.body.descripcion,      
-    idUsuario: req.session.userLogueado.id   
-  })
-  .then(function (producto) {
-    return res.redirect('/users/profile');  
-  })
-  .catch(function (error) {
-    console.log(error);
-    return res.send('Error al crear el producto');
-  });
+  if (req.session.user == undefined) {
+    return res.redirect('/users/login')
+  } 
+  else {
+    db.Product.create({
+      imagen: req.body.imagen,                 
+      nombre: req.body.nombre,                
+      descripcion: req.body.descripcion,      
+      idUsuario: req.session.userLogueado.id   
+    })
+    .then(function (producto) {
+      return res.redirect('/users/profile');  
+    })
+    .catch(function (error) {
+      console.log(error);
+      return res.send(error);
+    });
+  }
 },
 
 search: function (req, res) {
