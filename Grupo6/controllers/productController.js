@@ -12,7 +12,12 @@ const productController = {
     detalle: function (req, res) {
       var id = req.params.id; 
     
-      db.Product.findByPk(id)
+      db.Product.findByPk(id,{
+        include: [
+        {association:'comentarios', include: [{ association:'user'}]  }, 
+        {association: 'user' } ]
+        })
+
       .then(function (producto) {
         if (!producto) {
           return res.redirect('/');
@@ -85,6 +90,26 @@ search: function (req, res) {
     });
   });
 },
+
+productComment: function(req, res) {
+  if (req.session.userLogueado == undefined) {
+      return res.redirect('/users/login')
+  } 
+  else {
+      db.Comment.create({
+          texto: req.body.comment,
+          idUsuario: req.session.userLogueado.id,
+          idProducto: req.params.id
+      })
+      .then(function (resultados) {
+          return res.redirect('/products/detalle/' + req.params.id)
+      })
+      .catch(function (err) {
+          console.log(err);
+          return res.send(err);
+      })
+  }
+}
 
 
     

@@ -9,6 +9,8 @@ router.get('/add', productController.addProduct);
 router.get('/search', productController.search); 
 
 router.post('/processAdd', productController.processAdd);
+
+router.post('/product-comment/:id', productController.productComment)
    
 
 module.exports = router;
