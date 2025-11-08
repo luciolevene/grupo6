@@ -120,6 +120,7 @@ processLogin: function (req, res) {
 
         const passHash = bcrypt.hashSync(password, 10);
 
+
         return db.User.create({
           usuario: req.body.usuario,
           email: req.body.email,
