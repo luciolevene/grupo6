@@ -49,7 +49,7 @@
 <% if (comentarios.length > 0) { %>
   <% for (var i = 0; i < comentarios.length; i++) { %>
     <div class="comment">
-      <img src="/images/users/<%= comentarios[i].imagenPerfil %>" alt="perfil" class="comment-img">
+      <img src="/images/users/profile-default.png" alt="perfil" class="comment-img">
       <strong><a href="/users/profile/<%= comentarios[i].idUsuario %>"> <%= comentarios[i].user.usuario %>:</a></strong>
       <span><%= comentarios[i].texto %></span>
     </div>

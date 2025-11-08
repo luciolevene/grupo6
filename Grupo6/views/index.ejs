@@ -44,7 +44,7 @@
 							<div class="comments">
 									<% for (let j = 0; j < productos[i].comentarios.length; j++) { %>
 										<div class="comentario">
-											<img class="comentario-foto" src="/images/users/<%= productos[i].comentarios[j].imagenPerfil %>" alt="Foto de <%= productos[i].comentarios[j].usuario %>" width="32" height="32">
+											<img class="comentario-foto" src="/images/users/profile-default.png" alt="Foto de <%= productos[i].comentarios[j].usuario %>" width="32" height="32">
 											<strong><%= productos[i].comentarios[j].usuario %>:</strong>
 											<span><%= productos[i].comentarios[j].texto %></span>
 										</div>
