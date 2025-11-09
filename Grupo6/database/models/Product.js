@@ -4,10 +4,10 @@ module.exports = function (sequelize, dataTypes) {
     id: {
       autoIncrement: true,
       primaryKey: true,
-      type: dataTypes.INTEGER
+      type: dataTypes.INTEGER.UNSIGNED
     },
     idUsuario: {
-      type: dataTypes.INTEGER
+      type: dataTypes.INTEGER.UNSIGNED
     },
     imagen: {
       type: dataTypes.STRING

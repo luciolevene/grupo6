@@ -24,7 +24,7 @@ const productController = {
         }
     
         var logeado = false;
-        if (req.session && req.session.user) {
+        if (req.session && req.session.userLogueado) {
           logeado = true;
         }
     
@@ -45,7 +45,7 @@ const productController = {
 },
 
 processAdd: function (req, res) {
-  if (req.session.user == undefined) {
+  if (req.session.userLogueado == undefined) {
     return res.redirect('/users/login')
   } 
   else {
