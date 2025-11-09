@@ -756,3 +756,10 @@ textarea.form-input {
   font-weight: bold;
 
 }
+
+.error {
+
+  color: rgb(255, 0, 0);
+  padding: 12px 20px;
+  border-radius: 6px;
+}

@@ -36,7 +36,7 @@ processLogin: function (req, res) {
         return res.render('login', { error: 'Contraseña incorrecta' });
       }
     } else {
-      return res.render('login', { error: 'Email no registrado' });
+      return res.render('login', { error: 'Email no registrado, para registrarte <a href="/users/register">presioná acá</a>' });
     }
   })
   .catch(function (error) {
