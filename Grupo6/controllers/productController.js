@@ -60,7 +60,7 @@ processAdd: function (req, res) {
     })
     .catch(function (error) {
       console.log(error);
-      return res.send(error);
+      
     });
   }
 },
@@ -106,7 +106,7 @@ productComment: function(req, res) {
       })
       .catch(function (err) {
           console.log(err);
-          return res.send(err);
+          
       })
   }
 }

@@ -36,12 +36,12 @@ processLogin: function (req, res) {
         return res.render('login', { error: 'Contraseña incorrecta' });
       }
     } else {
-      return res.render('login', { error: 'Email no registrado, para registrarte <a href="/users/register">presioná acá</a>' });
+      return res.render('login', { error: 'Email no registrado' });
     }
   })
   .catch(function (error) {
-    console.error(error);
-    return res.status(500).render('error', { message: 'Error al iniciar sesión', error: error });
+    console.log(error);
+   
   });
 },
 
@@ -68,8 +68,7 @@ processLogin: function (req, res) {
         return res.render('profile', { user: usuario, productos: usuario.productos });
       })
       .catch(err => {
-        console.error(err);
-        return res.status(500).render('error', { message: 'Error al cargar el perfil', error: err });
+        console.log(err);
       });
   },
 
@@ -92,8 +91,7 @@ processLogin: function (req, res) {
         return res.render('profile', { user: usuario, productos: usuario.productos });
       })
       .catch(err => {
-        console.error(err);
-        return res.status(500).render('error', { message: 'Error al cargar el perfil', error: err });
+        console.log(err);
       });
   },
 
@@ -120,7 +118,6 @@ processLogin: function (req, res) {
 
         const passHash = bcrypt.hashSync(password, 10);
 
-
         return db.User.create({
           usuario: req.body.usuario,
           email: req.body.email,
@@ -141,8 +138,7 @@ processLogin: function (req, res) {
         return res.redirect('/users/profile');
       })
       .catch(err => {
-        console.error(err);
-        return res.status(500).render('error', { message: 'Error al registrar', error: err });
+        console.log(err);
       });
   },
 
