@@ -50,7 +50,7 @@ processAdd: function (req, res) {
   } 
   else {
     db.Product.create({
-      imagen: 'user1.jpg',                 
+      imagen: req.body.imagen,                 
       nombre: req.body.nombre,                
       descripcion: req.body.descripcion,      
       idUsuario: req.session.userLogueado.id   
