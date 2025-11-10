@@ -1,6 +1,6 @@
 const data = require("../db");
 const db = require('../database/models');
-const op = db.Sequelize.Op;
+const { Op } = require('sequelize');
 
 
 const productController = {
@@ -77,10 +77,12 @@ search: function (req, res) {
     ],
   })
   .then(function (products) {
+
+    
     res.render("search-results", {
       products: products,
       search: term
-    });
+    });  
   })
   .catch(function (error) {
     console.log(error);
