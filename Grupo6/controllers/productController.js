@@ -1,6 +1,6 @@
 const data = require("../db");
 const db = require('../database/models');
-const { Op } = require('sequelize');
+const op = db.Sequelize.Op;
 
 
 const productController = {
