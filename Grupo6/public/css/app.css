@@ -197,6 +197,49 @@ font-weight: initial;
 
 
 /*====== Products ======*/
+/* === Tarjetas en filas horizontales === */
+.products-wrapper .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+/* Cada columna bootstrap se adapta a la grilla */
+.products-wrapper .col-12.col-sm-6.col-lg-3 {
+  flex: 1 1 calc(25% - 20px);
+  max-width: calc(25% - 20px);
+  display: flex;
+}
+
+/* La tarjeta ocupa toda la altura disponible */
+.product-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* Marco fijo para la imagen y sin “zoom” */
+.product-box_image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-box_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Ajustes visuales entre tarjetas */
+.products-wrapper {
+  margin-top: 30px;
+}
+
 .products-wrapper {
   margin-top: 30px;
   margin-bottom: 30px;
