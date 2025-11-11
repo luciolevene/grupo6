@@ -41,6 +41,14 @@
 						<article class="product-box_data">
 							<h2><%= productos[i].nombre %></h2>
 							<p><%= productos[i].descripcion %></p>
+
+						
+              <% if (productos[i].user) { %>
+                <div class="product-author">
+                  <span>Creado por <strong><%= productos[i].user.usuario %></strong></span>
+                </div>
+              <% } %>
+			  
 							<div class="comments">
 									<% for (let j = 0; j < productos[i].comentarios.length; j++) { %>
 										<div class="comentario">
